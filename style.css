@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  min-height: 100vh;
+  min-height: 100vh; /* Esta medida hace que el body tome el alto de la pantalla, esto permite centrar las tarjetas */
   background-color: var(--veryDarkBlue);
   color: var(--white);
   font-family: var(--family);
@@ -30,61 +30,45 @@ body {
   justify-content: center;
   align-items: center;
 }
-/* .container {
-  border: 0.2rem solid #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
-
-@media (min-width: 992px) {
-  .container {
-    flex-direction: row;
-    justify-content: center;
-  }
-}
 
 .card {
   width: 37.5rem;
   height: 88rem;
-  /* border: 0.2rem solid yellowgreen; */
   background-color: var(--darkDesaturatedBlue);
   border-radius: 1rem;
-  overflow: hidden;
-  /* margin-top: 9rem; */
+  overflow: hidden; /* Corrije el desvordamiento de la imagen en las esquinas para aplicar el border radius */
 }
 @media (min-width: 992px) {
   .card {
     width: 1110px;
     height: 448px;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row-reverse; /* Estamos invirtiendo el sentido en el que se posicionan las tarjetas */
   }
-}
+} /* Posicionando y dimencionando las tarjetas para pc */
 .card-right {
-  position: relative;
+  position: relative; /* para poder posicionar el overley sobre la imagen*/
   overflow: hidden;
 }
 .card-right:hover .overlay {
-  bottom: 0;
+  bottom: 0; /* Se agrega el hover para activar el efecto */
 }
 .card-right img {
   width: 100%;
-  display: block;
+  display: block; /* Para solucionar problema de renderizado de la imagen */
 }
 .card-right .overlay {
   background-color: var(--softViolet);
-  opacity: 0.5;
-  position: absolute;
+  opacity: 0.5; /* transparencia del overlay */
+  position: absolute; /* Posicionamos el overlay sobre la imagen */
   height: 100%;
   width: 100%;
 }
 .overlay {
-  position: relative;
+  position: relative; /* es el posicionamiento que le devemos dar para el efecto */
   bottom: 100%;
   transition: all 0.3s;
-}
+} /* estas lineas de código se encargan de agregar el efecto a la imagen */
 @media (min-width: 992px) {
   .card-right {
     width: 100%;
@@ -95,14 +79,13 @@ body {
     height: 100%;
     display: block;
   }
-}
+} /* Redimencionando la tarjeta derecha para que ocupe el espacio */
 .card-left__content {
   text-align: center;
   padding: 3rem 4rem;
 }
 .card-left__content span {
   color: var(--softViolet);
-  opacity: 0.5;
 }
 .card-left__content p {
   color: var(--slightlyTransparentWhite);
@@ -146,4 +129,4 @@ body {
   .card-left__content p {
     text-align: left;
   }
-}
+} /* Nuevas medidas tarjeta izquierda */
